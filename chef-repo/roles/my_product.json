@@ -1,0 +1,42 @@
+{
+  "name": "my_product",
+  "description": "My test role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "cb_sudoers2": {
+      "sudo": {
+        "groups": [
+          "sysadmin",
+          "bin",
+          "admin"
+        ],
+        "users": [
+          "murali",
+          "krishna"
+        ]
+      }
+    },
+    "cb_oracledb": {
+      "db_version": "11g"
+    },
+    "cb_java": {
+      "java_version": "1.8_65"
+    },
+    "cb_wls": {
+      "wls_ver": "12c"
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[cb_java]",
+    "recipe[cb_oracledb]",
+    "recipe[cb_wls]",
+    "recipe[cb_sudoers2]"
+  ],
+  "env_run_lists": {
+
+  }
+}
